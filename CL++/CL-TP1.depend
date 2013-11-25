@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1385317663 source:/home/abdoul/Bureau/CL/CL-TP1/main.cpp
+	<iostream>
+	"include/AST.h"
+
+1385316513 /home/abdoul/Bureau/CL/CL-TP1/include/AST.h
+	<string>
+
+1385317537 source:/home/abdoul/Bureau/CL/CL-TP1/src/AST.cpp
+	"../include/AST.h"
+	<iostream>
+	<stack>
+	<stdio.h>
+	<stdlib.h>
+
