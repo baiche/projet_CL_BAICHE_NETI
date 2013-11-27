@@ -14,7 +14,7 @@ HAVE_BSD_MOUNT		= 0
 MOUNT_TYPE		= '"ext3"'
 
 
-CFLAGS =-g -Wall -Wextra -Wmissing-prototypes \
+CFLAGS = -g -Wall -Wmissing-prototypes \
 	-DHAVE_GZIP=$(HAVE_GZIP) \
 	-DHAVE_LINUX_ATTR=$(HAVE_LINUX_ATTR) \
 	-DHAVE_LINUX_MOUNT=$(HAVE_LINUX_MOUNT) \

@@ -991,7 +991,7 @@ do_sum(int argc, const char ** argv)
 
 
 void
-do_exit(int argc  __attribute__((unused)), const char ** argv  __attribute__((unused)))
+do_exit(int argc, const char ** argv)
 {
 	if (getpid() == 1)
 	{

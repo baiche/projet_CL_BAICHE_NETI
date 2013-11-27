@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include "ast.h"
+
+
+
+expression* simplifier(expression *expr){
+	
+double eval(expression *expr){
+  double res=0;
+  if(expr->type_expr==Integer) return expr->content.value;
+  if(expr->type_expr==BinaryOperation){
+    switch(expr->content.expr->op){
+    case PLUS :return eval(expr->content.expr->left) + eval(expr->content.expr->right) ;break;
+     case MINUS :return eval(expr->content.expr->left) - eval(expr->content.expr->right) ;break;
+ case MUL :return eval(expr->content.expr->left) * eval(expr->content.expr->right) ;break;
+ case DIV : return eval(expr->content.expr->left) / eval(expr->content.expr->right) ;break;
+
+    }
+  }
+}
+
+
+	if(expr->type_expr==Integer) return expr;
+	if(expr->type_expr==BinaryOperation){
+	switch(expr->content.expr->op){
+    	
+	case PLUS :
+		{
+		if(eval(expr->content.expr->left)==0)   return simplifier(expr->content.expr->right) ;break;
+		if(eval(expr->content.expr->right)==0)   return simplifier(expr->content.expr->left) ;break;
+			}
+     	case MINUS :
+		{
+		if (eval(expr->content.expr->left)==eval(expr->content.expr->right)) return 0 ;break;
+		if(eval(expr->content.expr->right)==0) return simplifier(expr->content.expr->left); break;	
+		}
+
+ 	case MUL :
+		{
+		 if(eval(expr->content.expr->left)==1) return simplifier(expr->content.expr->right) ;break;	
+		if(eval(expr->content.expr->right)==1) return simplifier(expr->content.expr->left) ;break ;
+		}
+	
+	 case DIV : 
+		if (eval(expr->content.expr->left)==eval(expr->content.expr->right)) return 1;break;
+		if (eval(expr->content.expr->right)==1) return simplifier(expr->content.expr->left) ;break;
+		}
+	}
+}
